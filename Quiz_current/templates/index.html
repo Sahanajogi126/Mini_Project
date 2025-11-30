@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automated Quiz Generator</title>
+    <title>Create Quiz - AutoQuiz</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/style.css') }}">
-
 </head>
 <body>
     <div class="container">
@@ -25,7 +24,6 @@
                 <textarea id="text-input" name="text_content" placeholder="Paste your text content here..." class="text-input"></textarea>
             </div>
 
-            <!-- question type selection moved to separate step -->
             <input type="hidden" name="input_mode" id="input-mode" value="file">
 
             <div class="upload-box">
@@ -35,12 +33,11 @@
                 </div>
             </div>
 
-            <div class="action-buttons" style="justify-content: center;">
+            <div class="action-buttons" style="justify-content: space-between; margin-top: 30px;">
+                <a href="/dashboard" class="btn back">← Back to Dashboard</a>
                 <button type="submit" class="btn generate" id="start-btn">Next →</button>
             </div>
         </form>
-
-        
     </div>
 
     <script>
@@ -52,13 +49,10 @@
             const textToggleBtn = document.getElementById('text-toggle-btn');
             const uploadBtnLabel = document.getElementById('upload-btn-label');
             const inputMode = document.getElementById('input-mode');
-            const typeButtons = document.querySelectorAll('.question-type .btn');
-            const hiddenType = document.getElementById('question-type');
             const form = document.getElementById('upload-form');
 
             let isTextMode = false;
 
-            // Toggle between file upload and text mode
             if (textToggleBtn) {
                 textToggleBtn.addEventListener('click', () => {
                     isTextMode = !isTextMode;
@@ -105,7 +99,7 @@
                         const wordCount = this.value.trim().split(/\s+/).length;
                         fileName.textContent = `Text content (${wordCount} words)`;
                         const previewDiv = document.getElementById('pdf-preview');
-                        previewDiv.style.display = 'none'; // No preview for text mode
+                        previewDiv.style.display = 'none';
                     } else {
                         fileName.textContent = 'Text mode - paste content above';
                         const previewDiv = document.getElementById('pdf-preview');
@@ -114,32 +108,18 @@
                 });
             }
 
-            // PDF preview functionality
             const previewPdfBtn = document.getElementById('preview-pdf-btn');
-            
             if (previewPdfBtn) {
                 previewPdfBtn.addEventListener('click', function() {
-                    // If a file is selected, preview it directly without uploading
                     if (input && input.files && input.files[0]) {
                         const localUrl = URL.createObjectURL(input.files[0]);
                         window.open(localUrl, '_blank');
                         return;
                     }
-                    // Fallback to server preview if available
                     window.open('/view_pdf', '_blank');
                 });
             }
 
-            // Question type selection
-            typeButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    typeButtons.forEach(b => b.classList.remove('selected'));
-                    btn.classList.add('selected');
-                    hiddenType.value = btn.getAttribute('data-type');
-                });
-            });
-
-            // Block submit until a file or text is provided (question type is chosen on the next page)
             if (form) {
                 form.addEventListener('submit', (e) => {
                     if (isTextMode && !textInput.value.trim()) {

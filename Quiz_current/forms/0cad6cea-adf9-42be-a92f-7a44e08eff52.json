@@ -1,0 +1,57 @@
+{
+  "form_id": "0cad6cea-adf9-42be-a92f-7a44e08eff52",
+  "questions": [
+    {
+      "type": "MCQ",
+      "question": "The _____ (panthera leo) is a large cat of the genus panthera, currently ranging only in sub-saharan africa and india.",
+      "options": [
+        "Genus",
+        "India",
+        "Lion",
+        "Panthera"
+      ],
+      "answer": "Lion"
+    },
+    {
+      "type": "Fill-in-the-Blank",
+      "question": "The lion (_____ leo) is a large cat of the genus panthera, currently ranging only in sub-saharan africa and india.",
+      "answer": "Panthera"
+    },
+    {
+      "type": "True/False",
+      "question": "True or False: It has a muscular, broad-chested body; a short, rounded head; round ears; and a dark, hairy tuft at the tip of its tail.",
+      "answer": "True"
+    },
+    {
+      "type": "MCQ",
+      "question": "It has a muscular, broad-chested body; a short, rounded head; round ears; and a dark, hairy _____ at the tip of its tail.",
+      "options": [
+        "Tuft",
+        "Head",
+        "Ears",
+        "Body"
+      ],
+      "answer": "Tuft"
+    },
+    {
+      "type": "Fill-in-the-Blank",
+      "question": "It has a muscular, broad-chested body; a short, rounded head; round ears; and a _____, hairy tuft at the tip of its tail.",
+      "answer": "dark"
+    },
+    {
+      "type": "True/False",
+      "question": "True or False: The lion ( Panthera leo ) is not a large cat of the genus Panthera , currently ranging only in Sub-Saharan Africa and India .",
+      "answer": "False"
+    },
+    {
+      "type": "Short Answer",
+      "question": "What does dark refer to?",
+      "answer": "Body - It has a muscular, broad-chested body; a short, rounded head; round ears; and a dark, hairy tuft at ..."
+    },
+    {
+      "type": "Short Answer",
+      "question": "Describe Africa.",
+      "answer": "Genus - The lion (Panthera leo) is a large cat of the genus Panthera, currently ranging only in Sub-Saharan ..."
+    }
+  ]
+}

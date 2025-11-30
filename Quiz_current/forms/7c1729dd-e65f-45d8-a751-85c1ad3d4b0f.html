@@ -1,0 +1,128 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Quiz Form</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background: #f5f5f5;
+            }
+            .question {
+                background: white;
+                padding: 20px;
+                margin: 20px 0;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .question h3 {
+                margin-top: 0;
+            }
+            .options {
+                margin: 10px 0;
+            }
+            .options label {
+                display: block;
+                padding: 8px;
+                margin: 5px 0;
+                background: #f9f9f9;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .options input[type="radio"] {
+                margin-right: 10px;
+            }
+            input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            button {
+                background: #6c63ff;
+                color: white;
+                padding: 12px 24px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 16px;
+                margin-top: 20px;
+            }
+            button:hover {
+                background: #5a52e5;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Quiz Form</h1>
+        <form id="quizForm" onsubmit="submitQuiz(event)">
+    <div class="question"><h3>Question 1: True or False: Ambedkar The Song of India 68-84 T 5 The Concert Jazuz Poem Two 85-109 6 The DiscoKvery Ballad of the Tempest 110-140 p (Memorization) 7 Colo©urs of Silence eThe Blind Boy 141-159 (Memorization) r 8 Sc ience and Hope of Off to Outer Space 160-180 S urvival e Tomorrow Morning bSupplementary Reading 1 Narayanpur Incident 181-185 2 On Top oof the World 186-188 3 A Great Martyr Ever Cherished 189-192 t 4 The Bird of Happiness 193-200 t Annexure o 1 Listening Scripts 201-204 N 2 List of Activities 205 3 List of Consonant Sounds 206 4 List of Vowel Sounds 207 5 Word Accent 208-209 6 Poetic Z 210 7 Discourse Markers 211 8 Language Functions 212 xxii uniT – 1 PRoSE before you read Read this anecdote narrated by a person.</h3><div class="options"><label><input type="radio" name="q0" value="True"> True</label><label><input type="radio" name="q0" value="False"> False</label></div></div><div class="question"><h3>Question 2: True or False: D e h s S i B l b T u K p © e r I was teaching my eight year old son Siddhartha about living and e non-liv ing things.</h3><div class="options"><label><input type="radio" name="q1" value="True"> True</label><label><input type="radio" name="q1" value="False"> False</label></div></div><div class="question"><h3>Question 3: True or False: Government of Karnataka d e not English h s S i SecoBnd Langualge b T u ( Revised ) K p © e r 10 e b o t Tenth Standard t o N Karnataka Textbook Society ( R. ) 100 Feet Ring Road , Banashankari 3rd Stage , Bengaluru - 85 ii Contents d Sl .</h3><div class="options"><label><input type="radio" name="q2" value="True"> True</label><label><input type="radio" name="q2" value="False"> False</label></div></div><div class="question"><h3>Question 4: True or False: H 1 A Hero G randma Climbs a Tree 1-22 2 There’s a Girl by the Quality of Mercsy 23-44 S Tracks!</h3><div class="options"><label><input type="radio" name="q3" value="True"> True</label><label><input type="radio" name="q3" value="False"> False</label></div></div><div class="question"><h3>Question 5: True or False: (Memorization) i 3 Gentleman of Rio eBn Medio I am the Lalnd 45-67 b 4 Dr. B.R.</h3><div class="options"><label><input type="radio" name="q4" value="True"> True</label><label><input type="radio" name="q4" value="False"> False</label></div></div>
+            <button type="submit">Submit Quiz</button>
+        </form>
+        
+        <div id="results" style="display:none; margin-top: 30px; padding: 20px; background: white; border-radius: 8px;">
+            <h2>Results</h2>
+            <div id="score"></div>
+            <div id="answers"></div>
+            <div style="margin-top: 20px; text-align: center;">
+                <a href="/" style="display: inline-block; background: linear-gradient(90deg, #6c63ff 0%, #ff63c3 100%);
+                   color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; 
+                   font-size: 16px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);"
+                   onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(108, 99, 255, 0.4)';"
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(108, 99, 255, 0.3)';">
+                    Generate Another Quiz
+                </a>
+            </div>
+        </div>
+        
+        <script>
+            function submitQuiz(event) {
+                event.preventDefault();
+                const form = document.getElementById('quizForm');
+                const formData = new FormData(form);
+                const responses = {};
+                
+                for (let i = 0; i < 5; i++) {
+                    const answer = formData.get(`q${i}`);
+                    if (answer) {
+                        responses[i] = answer;
+                    }
+                }
+                
+                fetch('/api/score', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        form_id: '7c1729dd-e65f-45d8-a751-85c1ad3d4b0f',
+                        responses: responses
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('results').style.display = 'block';
+                    document.getElementById('score').innerHTML = 
+                        `<h3>Score: ${data.score}/${data.total} (${data.percentage}%)</h3>`;
+                    
+                    let answersHtml = '<h4>Correct Answers:</h4><ul>';
+                    for (let i in data.correct_answers) {
+                        answersHtml += `<li>Question ${parseInt(i)+1}: ${data.correct_answers[i]}</li>`;
+                    }
+                    answersHtml += '</ul>';
+                    document.getElementById('answers').innerHTML = answersHtml;
+                    
+                    // Scroll to results section
+                    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error submitting quiz. Please try again.');
+                });
+            }
+        </script>
+    </body>
+    </html>
+    

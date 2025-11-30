@@ -1,0 +1,240 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Quiz Form</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background: #f5f5f5;
+            }
+            .question {
+                background: white;
+                padding: 20px;
+                margin: 20px 0;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .question h3 {
+                margin-top: 0;
+            }
+            .options {
+                margin: 10px 0;
+            }
+            .options label {
+                display: block;
+                padding: 8px;
+                margin: 5px 0;
+                background: #f9f9f9;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .options input[type="radio"] {
+                margin-right: 10px;
+            }
+            input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            button {
+                background: #6c63ff;
+                color: white;
+                padding: 12px 24px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 16px;
+                margin-top: 20px;
+            }
+            button:hover {
+                background: #5a52e5;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Quiz Form</h1>
+        <form id="quizForm" onsubmit="submitQuiz(event)">
+    <div class="question"><h3>Question 1: She was
+known for two things: her endless curiosity and her ability to get into _____ without
+even trying.</h3><input type="text" name="q0" placeholder="Enter your answer"></div><div class="question"><h3>Question 2: Mia was smart, funny, and had a _____ that could make teachers
+forgive almost anything—almost.</h3><div class="options">
+                <label>
+                    <input type="radio" name="q1" value="Aspect">
+                    A) Aspect
+                </label>
+                
+                <label>
+                    <input type="radio" name="q1" value="Concept">
+                    B) Concept
+                </label>
+                
+                <label>
+                    <input type="radio" name="q1" value="Smile">
+                    C) Smile
+                </label>
+                
+                <label>
+                    <input type="radio" name="q1" value="Component">
+                    D) Component
+                </label>
+                </div></div><div class="question"><h3>Question 3: It all started on a _____ morning when mia’s
+alarm didn’t ring.</h3><div class="options">
+                <label>
+                    <input type="radio" name="q2" value="Monday">
+                    A) Monday
+                </label>
+                
+                <label>
+                    <input type="radio" name="q2" value="Didn">
+                    B) Didn
+                </label>
+                
+                <label>
+                    <input type="radio" name="q2" value="Ring">
+                    C) Ring
+                </label>
+                
+                <label>
+                    <input type="radio" name="q2" value="Morning">
+                    D) Morning
+                </label>
+                </div></div><div class="question"><h3>Question 4: She rushed through breakfast, wore two different socks, and
+somehow brushed her _____ with a pen instead of a comb.</h3><input type="text" name="q3" placeholder="Enter your answer"></div><div class="question"><h3>Question 5: She was
+known for two _____: her endless curiosity and her ability to get into trouble without
+even trying.</h3><div class="options">
+                <label>
+                    <input type="radio" name="q4" value="Curiosity">
+                    A) Curiosity
+                </label>
+                
+                <label>
+                    <input type="radio" name="q4" value="Trouble">
+                    B) Trouble
+                </label>
+                
+                <label>
+                    <input type="radio" name="q4" value="Ability">
+                    C) Ability
+                </label>
+                
+                <label>
+                    <input type="radio" name="q4" value="Things">
+                    D) Things
+                </label>
+                </div></div><div class="question"><h3>Question 6: The day everything went wrong at sunshine _____
+once upon a time at sunshine high school, there was a girl named mia.</h3><div class="options">
+                <label>
+                    <input type="radio" name="q5" value="Time">
+                    A) Time
+                </label>
+                
+                <label>
+                    <input type="radio" name="q5" value="Sunshine">
+                    B) Sunshine
+                </label>
+                
+                <label>
+                    <input type="radio" name="q5" value="Everything">
+                    C) Everything
+                </label>
+                
+                <label>
+                    <input type="radio" name="q5" value="High">
+                    D) High
+                </label>
+                </div></div><div class="question"><h3>Question 7: It all started on a monday morning when mia’s
+alarm didn’t _____.</h3><input type="text" name="q6" placeholder="Enter your answer"></div><div class="question"><h3>Question 8: The day everything _____ wrong at sunshine high
+once upon a time at sunshine high school, there was a girl named mia.</h3><input type="text" name="q7" placeholder="Enter your answer"></div><div class="question"><h3>Question 9: She rushed through breakfast, wore two different socks, and
+somehow brushed her hair with a pen instead of a _____.</h3><div class="options">
+                <label>
+                    <input type="radio" name="q8" value="Hair">
+                    A) Hair
+                </label>
+                
+                <label>
+                    <input type="radio" name="q8" value="Socks">
+                    B) Socks
+                </label>
+                
+                <label>
+                    <input type="radio" name="q8" value="Breakfast">
+                    C) Breakfast
+                </label>
+                
+                <label>
+                    <input type="radio" name="q8" value="Comb">
+                    D) Comb
+                </label>
+                </div></div><div class="question"><h3>Question 10: Mia was smart, funny, and had a smile that could make _____
+forgive almost anything—almost.</h3><input type="text" name="q9" placeholder="Enter your answer"></div>
+            <button type="submit">Submit Quiz</button>
+        </form>
+        
+        <div id="results" style="display:none; margin-top: 30px; padding: 20px; background: white; border-radius: 8px;">
+            <h2>Results</h2>
+            <div id="score"></div>
+            <div id="answers"></div>
+            <div style="margin-top: 20px; text-align: center;">
+                <a href="/" style="display: inline-block; background: linear-gradient(90deg, #6c63ff 0%, #ff63c3 100%);
+                   color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; 
+                   font-size: 16px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);"
+                   onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(108, 99, 255, 0.4)';"
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(108, 99, 255, 0.3)';">
+                    Generate Another Quiz
+                </a>
+            </div>
+        </div>
+        
+        <script>
+            function submitQuiz(event) {
+                event.preventDefault();
+                const form = document.getElementById('quizForm');
+                const formData = new FormData(form);
+                const responses = {};
+                
+                for (let i = 0; i < 10; i++) {
+                    const answer = formData.get(`q${i}`);
+                    if (answer) {
+                        responses[i] = answer;
+                    }
+                }
+                
+                fetch('/api/score', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        form_id: '547e47c0-2dc4-4d39-8b11-b192b38eb59b',
+                        responses: responses
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('results').style.display = 'block';
+                    document.getElementById('score').innerHTML = 
+                        `<h3>Score: ${data.score}/${data.total} (${data.percentage}%)</h3>`;
+                    
+                    let answersHtml = '<h4>Correct Answers:</h4><ul>';
+                    for (let i in data.correct_answers) {
+                        answersHtml += `<li>Question ${parseInt(i)+1}: ${data.correct_answers[i]}</li>`;
+                    }
+                    answersHtml += '</ul>';
+                    document.getElementById('answers').innerHTML = answersHtml;
+                    
+                    // Scroll to results section
+                    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error submitting quiz. Please try again.');
+                });
+            }
+        </script>
+    </body>
+    </html>
+    
