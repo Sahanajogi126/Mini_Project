@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>View Generated Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f6f8}
+    .toolbar{display:flex;gap:8px;align-items:center;padding:10px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+    .toolbar button{padding:8px 12px;border:1px solid #ddd;background:#fff;cursor:pointer;border-radius:4px}
+    .toolbar .info{margin-left:auto;color:#555;font-size:14px}
+    .viewer-wrap{height:calc(100vh - 60px);padding:12px;box-sizing:border-box}
+    .pdf-container{width:100%;height:100%;background:#e9eef4;border:1px solid #dce6ef;overflow:auto;display:flex;justify-content:center;align-items:flex-start;padding:8px}
+    iframe#pdfFrame{width:100%;height:100%;border:0;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+    @media(max-width:600px){.toolbar{flex-wrap:wrap}}
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button id="zoomOut">-</button>
+    <button id="zoomReset">Fit</button>
+    <button id="zoomIn">+</button>
+    <a href="{{ url_for('download') }}" style="margin-left:8px;text-decoration:none"><button>Download PDF</button></a>
+    <div class="info">Use + / - to zoom the embedded PDF.</div>
+  </div>
+
+  <div class="viewer-wrap">
+    <div class="pdf-container">
+      <iframe id="pdfFrame" src="{{ url_for('viewer_pdf') }}"></iframe>
+    </div>
+  </div>
+
+  <script>
+    const frame = document.getElementById('pdfFrame');
+    let zoom = 1;
+    function applyZoom(){ frame.style.width = (zoom * 100) + "%"; frame.style.margin = "0 auto"; }
+    document.getElementById('zoomIn').onclick = ()=>{ zoom = Math.min(3, +(zoom + 0.1).toFixed(2)); applyZoom(); };
+    document.getElementById('zoomOut').onclick = ()=>{ zoom = Math.max(0.5, +(zoom - 0.1).toFixed(2)); applyZoom(); };
+    document.getElementById('zoomReset').onclick = ()=>{ zoom = 1; applyZoom(); };
+    applyZoom();
+  </script>
+</body>
+</html>

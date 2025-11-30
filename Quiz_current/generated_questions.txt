@@ -1,0 +1,87 @@
+(MCQ) The lion wa grateful and realized even small _____ can make a big difference .
+  A) Difference
+  B) Creature
+  C) Lion
+  D) Grateful
+Answer: Creature
+
+(Fill-in-the-Blank) Moral : _____ is never wasted .
+Answer: kindness
+
+(Fill-in-the-Blank) One day , a mighty lion wa sleeping in the jungle when a little _____ accidentally ran across his paw .
+Answer: mouse
+
+(Fill-in-the-Blank) The _____ woke up and caught the mouse , ready to eat it .
+Answer: lion
+
+(Fill-in-the-Blank) The mouse pleaded , please , let me go , and someday ill repay your _____ .
+Answer: kindness
+
+(Fill-in-the-Blank) The _____ laughed but decided to let the mouse go .
+Answer: lion
+
+(Fill-in-the-Blank) A few day later , the _____ got caught in a hunter net .
+Answer: lion
+
+(Fill-in-the-Blank) The _____ heard his roar , ran to him , and chewed through the rope to free him .
+Answer: mouse
+
+(Fill-in-the-Blank) The lion wa _____ and realized even small creature can make a big difference .
+Answer: grateful
+
+(True/False) True or False: Moral : Z is never wasted .
+Answer: False
+
+(True/False) True or False: One day , a mighty lion wa sleeping not in the jungle when a little mouse accidentally ran across his paw .
+Answer: False
+
+(True/False) True or False: The lion woke up and caught the mouse , ready to eat it .
+Answer: True
+
+(True/False) True or False: The mouse pleaded , please , let me go , and someday ill repay your kindness .
+Answer: True
+
+(True/False) True or False: The lion laughed not but decided to let the mouse go .
+Answer: False
+
+(True/False) True or False: A few day later , the lion got caught in a hunter net .
+Answer: True
+
+(True/False) True or False: The mouse heard not his roar , ran to him , and chewed through the rope to free him .
+Answer: False
+
+(True/False) True or False: The lion wa grateful and realized even small creature can make a big difference .
+Answer: True
+
+(Short Answer) What is meant by 'kindness' in this sentence?
+Context: moral : kindness is never wasted
+Answer: Moral : *kindness* is never wasted
+
+(Short Answer) Explain the term 'mouse' as used here.
+Context: one day , a mighty lion wa sleeping in the jungle when a little mouse accidentally ran across his paw
+Answer: One day , a mighty lion wa sleeping in the jungle when a little *mouse* accidentally ran across his paw
+
+(Short Answer) What is meant by 'mouse' in this sentence?
+Context: the lion woke up and caught the mouse , ready to eat it
+Answer: The lion woke up and caught the *mouse* , ready to eat it
+
+(Short Answer) What is meant by 'mouse' in this sentence?
+Context: the mouse pleaded , please , let me go , and someday ill repay your kindness
+Answer: The *mouse* pleaded , please , let me go , and someday ill repay your kindness
+
+(Short Answer) What does 'mouse' mean in the following context?
+Context: the lion laughed but decided to let the mouse go
+Answer: The lion laughed but decided to let the *mouse* go
+
+(Short Answer) What is meant by 'lion' in this sentence?
+Context: a few day later , the lion got caught in a hunter net
+Answer: A few day later , the *lion* got caught in a hunter net
+
+(Short Answer) Explain the term 'mouse' as used here.
+Context: the mouse heard his roar , ran to him , and chewed through the rope to free him
+Answer: The *mouse* heard his roar , ran to him , and chewed through the rope to free him
+
+(Short Answer) What is meant by 'difference' in this sentence?
+Context: the lion wa grateful and realized even small creature can make a big difference
+Answer: The lion wa grateful and realized even small creature can make a big *difference*
+

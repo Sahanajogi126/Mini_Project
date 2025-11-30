@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Question Types</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">AQ</div>
+        <h1>Choose Question Types</h1>
+        <p>Select one or more question types (click to toggle)</p>
+
+        <form action="/start" method="post" id="choose-form">
+            <div class="question-type">
+                <button type="button" data-type="mcq" class="btn mcq" title="Multiple Choice">MCQ</button>
+                <button type="button" data-type="fill_blanks" class="btn fill-blanks" title="Fill in the Blanks">Fill in the Blank</button>
+                <button type="button" data-type="true_false" class="btn true-false" title="True / False">True/False</button>
+                <button type="button" data-type="short_answer" class="btn short-answer" title="Short Answer">Short Answer</button>
+            </div>
+            <input type="hidden" name="question_type" id="question-type" value="">
+
+            <div class="settings-group" style="margin: 30px 0;">
+                <label style="display: block; color: #b0b0b0; margin-bottom: 10px; font-size: 14px; font-weight: 500;">Difficulty Level</label>
+                <div class="btn-group" style="justify-content: center; gap: 15px;">
+                    <button type="button" data-difficulty="easy" class="btn secondary difficulty-btn" tabindex="0" aria-pressed="false">Easy</button>
+                    <button type="button" data-difficulty="medium" class="btn secondary difficulty-btn" tabindex="0" aria-pressed="false">Medium</button>
+                    <button type="button" data-difficulty="hard" class="btn secondary difficulty-btn" tabindex="0" aria-pressed="false">Hard</button>
+                </div>
+                <input type="hidden" name="difficulty" id="difficulty-input" value="">
+            </div>
+
+            <div class="settings-group" style="margin: 30px 0;">
+                <label style="display: block; color: #b0b0b0; margin-bottom: 10px; font-size: 14px; font-weight: 500;">Number of Questions</label>
+                <div style="display: flex; justify-content: center;">
+                    <input type="number" name="num_questions" id="num-questions" value="10" min="5" max="50" step="1" 
+                           style="width: 120px; padding: 12px; border: 2px solid #4a4a6a; border-radius: 12px; 
+                                  background: rgba(20, 20, 35, 0.7); color: #e0e0e0; font-size: 16px; text-align: center;
+                                  transition: all 0.3s ease; font-weight: 500;" 
+                           onfocus="this.style.borderColor='#6c63ff'; this.style.background='rgba(20, 20, 35, 0.9)'; this.style.boxShadow='0 0 0 3px rgba(108, 99, 255, 0.2)';"
+                           onblur="this.style.borderColor='#4a4a6a'; this.style.background='rgba(20, 20, 35, 0.7)'; this.style.boxShadow='none';">
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button type="button" class="btn back" onclick="window.location.href='/'">← Back</button>
+                <button type="submit" class="btn generate">Generate →</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        (function() {
+            const typeButtons = document.querySelectorAll('.question-type .btn');
+            const hiddenType = document.getElementById('question-type');
+            const form = document.getElementById('choose-form');
+            const selectedTypes = new Set();
+
+            typeButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const type = btn.getAttribute('data-type');
+                    if (btn.classList.contains('selected')) {
+                        btn.classList.remove('selected');
+                        selectedTypes.delete(type);
+                    } else {
+                        btn.classList.add('selected');
+                        selectedTypes.add(type);
+                    }
+                    // Update hidden input with comma-separated types
+                    hiddenType.value = Array.from(selectedTypes).join(',');
+                });
+            });
+
+            // Difficulty level selection
+            const difficultyButtons = document.querySelectorAll('.difficulty-btn');
+            const difficultyInput = document.getElementById('difficulty-input');
+            // initialize selection from hidden input if necessary (none by default)
+            if (difficultyInput.value) {
+                const initBtn = document.querySelector(`.difficulty-btn[data-difficulty="${difficultyInput.value}"]`);
+                if (initBtn) initBtn.classList.add('selected');
+            }
+            difficultyButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    difficultyButtons.forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                    difficultyInput.value = btn.getAttribute('data-difficulty');
+                    // Update aria-pressed for accessibility
+                    difficultyButtons.forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+                    // Focus the button so keyboard/visual cursor is clear and consistent
+                    btn.focus();
+                });
+            });
+
+            form.addEventListener('submit', (e) => {
+                if (selectedTypes.size === 0) {
+                    e.preventDefault();
+                    alert('Please select at least one question type.');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
+
+

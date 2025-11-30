@@ -1,0 +1,10 @@
+Flask==3.0.0
+pdfplumber==0.10.3
+transformers==4.35.0
+torch==2.1.0
+reportlab==4.0.7
+nltk==3.8.1
+sumy==0.11.0
+sentencepiece==0.1.99
+protobuf==4.25.0
+

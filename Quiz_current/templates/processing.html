@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generating Quiz…</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/style.css') }}">
+    <style>
+      .loader { width: 56px; height: 56px; border-radius: 50%; border: 6px solid #e6e2ff; border-top-color: #6c63ff; animation: spin 1s linear infinite; margin: 18px auto; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .subtle { color: #6b6a7e; font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>⚙️ Generating your quiz…</h1>
+      <p class="subtle">This may take a few moments. We're extracting text, creating questions, and building your PDF.</p>
+      <div class="loader"></div>
+      <p class="subtle">You will be redirected automatically when it's ready.</p>
+    </div>
+
+    <script>
+      // Poll the server for readiness
+      const check = () => {
+        fetch('/status').then(r => r.json()).then(j => {
+          if (j && j.ready) {
+            window.location.href = '/result';
+          } else {
+            setTimeout(check, 1500);
+          }
+        }).catch(() => setTimeout(check, 2000));
+      };
+      setTimeout(check, 1000);
+    </script>
+  </body>
+  </html>
+
+

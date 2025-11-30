@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Generated</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Quiz Successfully Generated!</h1>
+        <p>Your quiz PDF is ready to download.</p>
+        <div class="result-actions">
+            <a href="/view_generated" target="_blank" class="btn secondary">👁 Preview Quiz PDF</a>
+            <a href="/download" class="start-btn">Download Quiz PDF</a>
+            {% if form_link %}
+            <a href="{{ form_link }}" target="_blank" class="btn secondary" style="background: linear-gradient(90deg, #4285f4 0%, #34a853 100%); border: none;">
+                📝 Take Google Form Quiz
+            </a>
+            {% endif %}
+        </div>
+        <div class="action-buttons" style="margin-top: 30px;">
+            <a href="/choose" class="btn back">← Back</a>
+        </div>
+    </div>
+</body>
+</html>
